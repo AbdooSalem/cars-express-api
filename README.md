@@ -11,14 +11,16 @@ Car {
 }
 ```
 ### Available endpoints
-Get All Cars : `GET /cars`
-Create A Car : `POST /cars`
-Get A Car : `GET /cars/:id`
-Update A Car : `PUT /cars/:id`
-Delete A Car : `DELETE /cars/:id`
+- Get All Cars : `GET /cars`
+- Create A Car : `POST /cars`
+- Get A Car : `GET /cars/:id`
+- Update A Car : `PUT /cars/:id`
+- Delete A Car : `DELETE /cars/:id`
 
 ### Security
-The API is secured using an API key `6Nz4Nm6CWa0Zea9ox6gI6A==`. The key should be passed in the headers as the following to authorize the requests.
+The API is secured using an API key `6Nz4Nm6CWa0Zea9ox6gI6A==`.
+
+The key should be passed in the headers as the following to authorize the requests.
 `x-api-key: 6Nz4Nm6CWa0Zea9ox6gI6A==`
 
 ## Getting Started
@@ -28,7 +30,7 @@ Environment prerequisite:
 
 ### Start the API server
 In the parent directory, run `docker-compose up -d`.
-The API will be exposed on port `4000`. `(make sure the port is free and not used by any other apps)`.
+The API will be exposed on port `4000`. **Make sure the port is free and not used by any other apps**.
 
 query example using curl: `curl 'http://localhost:4000/cars' --header 'x-api-key: 6Nz4Nm6CWa0Zea9ox6gI6A=='` to get meta-data of all the cars
 
