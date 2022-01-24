@@ -62,7 +62,8 @@ const updateCar = async (req: Request, res: Response): Promise<void> => {
 		}
 		const updatedCar: ICarDocument | null = await Car.findByIdAndUpdate(
 			{ _id: id },
-			body
+			body,
+			{new: true}
 		);
 		res.status(updatedCar ? 200 : 404).json({
 			car: updatedCar,
