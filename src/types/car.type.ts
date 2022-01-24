@@ -1,4 +1,4 @@
-import { Document } from "mongoose";
+import { Document } from "mongoose"
 
 export interface ICar {
   brand: string
@@ -6,4 +6,4 @@ export interface ICar {
   model: string
 }
 
-export interface ICarDocument extends ICar, Document {}
+export interface ICarDocument extends ICar, Document { }

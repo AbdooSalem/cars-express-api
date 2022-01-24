@@ -1,5 +1,5 @@
 import Ajv, { JSONSchemaType } from "ajv"
-import { ICar } from "../types/car.type";
+import { ICar } from "../types/car.type"
 
 const ajv = new Ajv()
 
@@ -8,10 +8,10 @@ const schema: JSONSchemaType<ICar> = {
   properties: {
     brand: { type: "string" },
     color: { type: "string" },
-    model: { type: "string" },
+    model: { type: "string" }
   },
   required: ["brand", "color", "model"],
-  additionalProperties: false,
+  additionalProperties: false
 }
 
 const validate = ajv.compile(schema)
@@ -23,10 +23,10 @@ const validate = ajv.compile(schema)
  */
 const validateCar = (data: object) => {
   if (validate(data)) {
-    return (null);
+    return (null)
   } else {
-    return (validate.errors);
+    return (validate.errors)
   }
 }
 
-export default validateCar;
+export default validateCar
