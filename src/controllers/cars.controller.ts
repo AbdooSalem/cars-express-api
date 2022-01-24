@@ -9,7 +9,7 @@ const getCars = async (req: Request, res: Response): Promise<void> => {
     const cars: ICarDocument[] = await Car.find()
     res.status(200).json({ cars })
   } catch (error) {
-    res.status(500)
+    res.sendStatus(500)
   }
 }
 
@@ -27,7 +27,7 @@ const addCar = async (req: Request, res: Response): Promise<void> => {
     const newCar: ICarDocument = await car.save()
     res.status(201).json({ car: newCar })
   } catch (error) {
-    res.status(500)
+    res.sendStatus(500)
   }
 }
 
@@ -39,10 +39,13 @@ const retrieveCar = async (req: Request, res: Response): Promise<void> => {
       return
     }
     const car: ICarDocument | null = await Car.findById({ _id: id })
-    car && res.status(200).json({ car })
-    !car && res.status(404)
+    if (car === null) {
+      res.sendStatus(404)
+    } else {
+      res.status(200).json({ car })
+    }
   } catch (error) {
-    res.status(500)
+    res.sendStatus(500)
   }
 }
 
@@ -68,7 +71,7 @@ const updateCar = async (req: Request, res: Response): Promise<void> => {
       car: updatedCar
     })
   } catch (error) {
-    res.status(500)
+    res.sendStatus(500)
   }
 }
 
@@ -85,7 +88,7 @@ const deleteCar = async (req: Request, res: Response): Promise<void> => {
       car: deletedCar
     })
   } catch (error) {
-    res.status(500)
+    res.sendStatus(500)
   }
 }
 
