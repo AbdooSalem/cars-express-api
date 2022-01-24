@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import carsRoutes from "./routes";
+import carsRoutes from "./routes/cars.route";
 
 const app = express();
 

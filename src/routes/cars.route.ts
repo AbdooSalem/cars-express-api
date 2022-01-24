@@ -6,7 +6,7 @@ import {
   updateCar,
   deleteCar,
   retrieveCar,
-} from "../controllers/cars";
+} from "../controllers/cars.controller";
 
 const carRoutes: Router = Router();
 

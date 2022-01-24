@@ -1,8 +1,8 @@
 import { Response, Request } from "express";
 import mongoose from "mongoose";
-import { ICarDocument } from "../../types/car.type";
-import Car from "../../models/car.model";
-import validateCar from "../../schemas/car.schema"
+import { ICarDocument } from "../types/car.type";
+import Car from "../models/car.model";
+import validateCar from "../schemas/car.schema";
 
 
 const getCars = async (req: Request, res: Response): Promise<void> => {
