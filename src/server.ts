@@ -1,5 +1,6 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
+
 import carsRoutes from "./routes/cars.route";
 
 const app = express();
@@ -9,8 +10,21 @@ const app = express();
 const MONGODB_PORT = 27017;
 const MONGODB_URL = `mongodb://mongodb-container:${MONGODB_PORT}/cars`
 const API_PORT = 4000;
+const API_KEY = `6Nz4Nm6CWa0Zea9ox6gI6A==`;
 //////////
 
+// middleware to check the secure the API with API KEY
+const checkApiKey = () => {
+	return (req: Request, res: Response, next: NextFunction) => {
+		if (req.headers['x-api-key'] !== API_KEY) {
+			res.status(403).send('Unauthorized');
+		} else {
+			next();
+		}
+	}
+}
+
+app.use(checkApiKey());
 app.use(express.json());
 app.use(carsRoutes);
 
