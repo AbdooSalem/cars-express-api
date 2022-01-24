@@ -31,3 +31,8 @@ In the parent directory, run `docker-compose up -d`.
 The API will be exposed on port `4000`. `(make sure the port is free and not used by any other apps)`.
 
 query example using curl: `curl 'http://localhost:4000/cars' --header 'x-api-key: 6Nz4Nm6CWa0Zea9ox6gI6A=='` to get meta-data of all the cars
+
+## Further improvements
+- Have testing in place.
+- Read variables such as `MONGODB_PORT`, `MONGODB_URL` `API_PORT`, `API_KEY` from the environment.
+- Have an API documentation using Swagger and have an endpoint for it in the API e.g: `/docs`.
