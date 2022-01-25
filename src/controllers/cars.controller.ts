@@ -2,7 +2,7 @@ import { Response, Request } from "express"
 import mongoose from "mongoose"
 import { ICarDocument } from "../types/car.type"
 import Car from "../models/car.model"
-import validateCar from "../schemas/car.schema"
+import { validateAddNewCarInput, validateUpdateCarInput } from "../schemas/car.schema"
 
 const getCars = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -17,7 +17,7 @@ const addCar = async (req: Request, res: Response): Promise<void> => {
   try {
     const body = req.body
     // validate input
-    const inputErrors = validateCar(body)
+    const inputErrors = validateAddNewCarInput(body)
     if (inputErrors) {
       res.status(400).json(inputErrors)
       return
@@ -57,7 +57,7 @@ const updateCar = async (req: Request, res: Response): Promise<void> => {
       res.status(400).json({ error: "invalid id" })
       return
     }
-    const inputErrors = validateCar(body)
+    const inputErrors = validateUpdateCarInput(body)
     if (inputErrors) {
       res.status(400).json(inputErrors)
       return
